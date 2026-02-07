@@ -3,8 +3,7 @@
 void setup() {
   // put your setup code here, to run once
   Serial.begin(9600);
-  // Serial.print("The sum of 3 and 4 is: ");
-  // Serial.println(testasm(3, 4));
+
   for (uint8_t n = 0; n <= 13; ++n) {
     unsigned int res = testasm(n, 0);
     Serial.print("fib(");
@@ -12,6 +11,12 @@ void setup() {
     Serial.print(") = ");
     Serial.println(res);
   }
+  // incorrect res (true results need to be represented with more than 8'b)
+  Serial.print("fib(15) != ");
+  Serial.println(testasm(15, 0));
+  Serial.print("fib(20) != ");
+  Serial.println(testasm(20, 0));
+
   pinMode (13, OUTPUT);
 }
 
